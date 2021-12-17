@@ -10,7 +10,7 @@ docker build --tag=testproject:latest .
 Для запуска образа: 
 docker run --name testproject -p 8081:8080 -t testproject:latest
 ***
-После запуска приложения для авторизации необходимо отправить на http://localhost:8080/login
+После запуска приложения для авторизации необходимо отправить на http://localhost:8081/login
 {
    "username":"user",
    "password":"user"
@@ -18,17 +18,17 @@ docker run --name testproject -p 8081:8080 -t testproject:latest
 
 После авторизации придет jwt токен:
 ***
-Для отправки сообщений необходимо сделать пост запрос на http://localhost:8080/message
+Для отправки сообщений необходимо сделать пост запрос на http://localhost:8081/message
 {
-   username:       "user",
-   message:    "текст сообщения"
+   "username":       "user",
+   "message":    "текст сообщения"
 }
 В заголовках указать Bearer токен (полученный из эндпоинта выше)
 В случае успешной проверки токена, полученное сообщение сохранить в БД.
 ***
 Если отправить сообщение вида:
 {
-   username:       "user",
-   message:    "history 10"
+   "username":       "user",
+   "message":    "history 10"
 }
 В ответ придет 10 последних сообщений.
