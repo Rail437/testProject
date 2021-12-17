@@ -20,7 +20,7 @@ docker run --name testproject -p 8081:8080 -t testproject:latest
 ***
 Для отправки сообщений необходимо сделать пост запрос на http://localhost:8080/message
 {
-   name:       "user",
+   username:       "user",
    message:    "текст сообщения"
 }
 В заголовках указать Bearer токен (полученный из эндпоинта выше)
@@ -28,7 +28,7 @@ docker run --name testproject -p 8081:8080 -t testproject:latest
 ***
 Если отправить сообщение вида:
 {
-   name:       "user",
+   username:       "user",
    message:    "history 10"
 }
 В ответ придет 10 последних сообщений.
